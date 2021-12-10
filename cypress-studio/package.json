@@ -1,0 +1,11 @@
+{
+  "name": "cypress-studio",
+  "version": "1.0.0",
+  "description": "An experiment using Cypress Studio feature",
+  "main": "index.js",
+  "author": "Pedro Hyvo",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^9.1.1"
+  }
+}
