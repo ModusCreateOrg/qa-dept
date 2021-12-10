@@ -8,8 +8,8 @@ describe('Cypress Studio code example', () => {
     cy.get('[data-test="password"]').clear();
     cy.get('[data-test="password"]').type('secret_sauce');
     cy.get('[data-test="login-button"]').click();
-    cy.get('.title').should('have.text', 'Products');
     cy.get('.title').should('be.visible');
+    cy.get('.title').should('have.text', 'Products');
     /* ==== End Cypress Studio ==== */
   });
 
