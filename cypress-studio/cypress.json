@@ -1,1 +1,4 @@
-{}
+{
+  "experimentalStudio": true,
+  "chromeWebSecurity": false
+}
