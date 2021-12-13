@@ -18,7 +18,7 @@ it('can add a product into cart', function() {
   cy.get('.shopping_cart_link').click();
   cy.get('.inventory_item_name').should('have.text', 'Sauce Labs Backpack');
   cy.get('.cart_quantity').should('have.text', '1');
-  cy.get('.inventory_item_price').should('have.text', '$29.99');
+  cy.get('.inventory_item_price').should('be.visible');
   cy.get('[data-test="checkout"]').click();
   cy.get('[data-test="firstName"]').clear();
   cy.get('[data-test="firstName"]').type('John');
