@@ -12,7 +12,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          record: true
+          working-directory: cypress-studio
           group: Tests on Chrome
       
       # after the test run completes
