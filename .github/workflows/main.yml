@@ -13,7 +13,6 @@ jobs:
         with:
           browser: chrome
           working-directory: cypress-studio
-          group: Tests on Chrome
       
       # after the test run completes
       # store videos and any screenshots
