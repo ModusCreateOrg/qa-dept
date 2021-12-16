@@ -2,6 +2,7 @@
 
 <!-- PROJECT SHIELDS -->
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
+![example workflow](https://github.com/ModusCreateOrg/qa-coe-experiments/actions/workflows/main.yml/badge.svg)
 
 <!-- PROJECT LOGO -->
 <br />
