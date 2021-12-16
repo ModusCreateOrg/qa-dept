@@ -4,6 +4,7 @@
   <p align="center">
   <a href="https://moduscreate.com/"><img src=""/></a>
 </p>
+</div>
 
 # QA CoE Experiments
 <!-- CONTENTS -->
