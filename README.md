@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <p align="center">
-  <a href="https://moduscreate.com/"><img src=""/></a>
+  <a href="https://moduscreate.com/"><img src="https://raw.githubusercontent.com/ModusCreateOrg/qa-coe-experiments/master/imgs/coe-logo-qa.png"/></a>
 </p>
 </div>
 
@@ -10,7 +10,9 @@
 <!-- CONTENTS -->
 ## Contents
 
-[Cypress Studio](/cypress-studio/README.md)
+- [Cypress Studio](/cypress-studio/README.md)
+
+<br/>
 
 <!-- CONTRIBUTING -->
 ## Contributing
