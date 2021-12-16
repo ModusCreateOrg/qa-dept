@@ -26,9 +26,9 @@ The main goal of this experiment is to share with the community how `Cypress Stu
 
 ### Prerequisites
 
-* npm
+* yarn
   ```sh
-  npm install npm@latest -g
+  npm install --global yarn
   ```
 
 ### How to run cypress tests
@@ -40,19 +40,18 @@ The main goal of this experiment is to share with the community how `Cypress Stu
 3. Install NPM packages under `cypress-studio` folder
    ```sh
    cd cypress-studio
-   npm install
+   yarn
    ```
 4. You can run cypress tests in two ways:
    
-  * Headless
-  
+  * Headless mode
   ```javascript
-   ./node_modules/.bin/cypress run
+   npx cypress run
   ```
   or
   * Open Cypress Test Runner
   ```javascript
-      ./node_modules/.bin/cypress open
+      npx cypress open
   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
