@@ -1,0 +1,16 @@
+{
+  "name": "nightwatchjs",
+  "version": "1.0.0",
+  "description": "Test 'https://www.ecosia.org/' web application using NightwatchJS ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chanaggonda",
+  "license": "ISC",
+  "devDependencies": {
+    "chromedriver": "^96.0.0",
+    "geckodriver": "^3.0.1",
+    "nightwatch": "^1.7.13"
+  }
+}
