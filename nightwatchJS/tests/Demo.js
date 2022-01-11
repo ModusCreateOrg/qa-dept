@@ -1,5 +1,5 @@
-describe('Demo test Ecosia.org', function() {
-  test('search for nightwatch', function(browser) {
+describe('Home page search - Ecosia.org', function() {
+  test('search for keyword - nightwatch', function(browser) {
     browser
       .url('https://www.ecosia.org/')
       .waitForElementVisible('body')
@@ -12,3 +12,4 @@ describe('Demo test Ecosia.org', function() {
       .end();
   })
 });
+ 
