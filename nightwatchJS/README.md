@@ -5,11 +5,11 @@
 <!-- CONTENTS -->
 ## Contents
 
-- [Intro](/nightwatchJS/Intro)
-- [Installation](/nightwatchJS/Installation)
-- [Write Tests](/nightwatchJS/WriteTest)
-- [How to Run](/nightwatchJS/HowtoRun)
-- [Reporting](/nightwatchJS/Reporting)
+- [Intro](/nightwatchJS/README.md#Intro)
+- [Installation](/nightwatchJS/README.md#Installation)
+- [Write Tests](/nightwatchJS/README.md#Write-Tests)
+- [How to Run](/nightwatchJS/README.md#How-to-Run)
+- [Reporting](/nightwatchJS/README.md#Reporting)
 
 <br/>
 
