@@ -97,7 +97,7 @@ docker push path-to-private-repo.com/repo/cypress-studio:latest
 
 ## Deploy on Kubernetes
 ### Prerequisites
-Docker image is built and pushed in the target repository. Install `kubectl` tool and configure access to Kubernetes cluster. <br>
+Docker image is built and pushed in the target repository. Install `kubectl` tool and configure access to Kubernetes cluster.
 Installation instructions are <a href="https://kubernetes.io/docs/tasks/tools/">here.</a><br>
 Alternatively, run on a local machine mini cube - follow instructions <a href="https://minikube.sigs.k8s.io/docs/start/">here.</a>
 
