@@ -154,5 +154,82 @@ OR
 this command will trigger all tests and its subfolder tests via Chrome browser
 
 
+<!-- DOCKER SECTION -->
+## How to run tests with docker 
+
+### Prerequisites
+Install the latest Docker engine on the local machine following instructions <a href="https://docs.docker.com/engine/install/">here.</a>
+
+### Build docker image with tests
+Run following in `nightwatchJS`folder:
+```sh
+docker build -t modus/nightwatchjs:latest .
+```
+
+Run tests locally:
+```sh
+docker run -it modus/nightwatchjs:latest
+```
+
+
+### Push image to a docker repository
+
+To push the image to a private repo, we have to retag the image to point on the target docker repository. Otherwise, the default is Dockerhub.
+
+Push to DockerGub (need credentials for DockerHub)
+```sh
+docker push modus/nightwatchjs:latest
+```
+
+Push to private repository:
+
+```sh
+docker tag modus/nightwatchjs:latest  path-to-private-repo.com/repo/nightwatchjs:latest
+```
+Where `path-to-private-repo.com/repo/nightwatchjs:latest`is private target docker repository.
+
+Credentials for the target docker repository are needed for the push.
+
+Push image with:
+```sh
+docker push path-to-private-repo.com/repo/nightwatchjs:latest
+```
+
+## Deploy on Kubernetes
+### Prerequisites
+Docker image is built and pushed in the target repository. Install `kubectl` tool and configure access to Kubernetes cluster. <br>
+Installation instructions are <a href="https://kubernetes.io/docs/tasks/tools/">here.</a><br>
+Alternatively, run on a local machine mini cube - follow instructions <a href="https://minikube.sigs.k8s.io/docs/start/">here.</a>
+
+### Kubernetes YAML example
+
+Save following YAML as `modus-test-job.yaml`
+```YAML
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: modus-nightwatch-test-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: modus-nightwatch-test-job
+        image: modus/nightwatchjs:latest 
+```
+Previous YAML assume that docker image is pushed on DockerHub.
+
+Deploy job on kubernetes:
+```sh
+kubectl apply -f modus-test-job.yaml
+```
+
+Find exact name of the jobs pod with:
+```sh 
+kubectl get pods
+```
+
+Using `kubectl logs modus-nightwatch-test-job-XXX` get logs/results where `modus-nightwatch-test-job-XXX`is the name of the job.
+On development/testing, cluster logs could be redirected to the central logging system, and results could be visible there. 
+
 
     
