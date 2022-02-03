@@ -1,0 +1,6 @@
+.pytest_cache
+pytest-env/__pycache__
+pytest-env/.pytest_cache
+pytest-env/bin
+pytest-env/include
+pytest-env/lib
