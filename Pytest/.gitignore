@@ -2,3 +2,5 @@ venv
 .pytest_cache
 .idea
 result.xml
+tests/pytest_cache
+tests/.pytest_cache
