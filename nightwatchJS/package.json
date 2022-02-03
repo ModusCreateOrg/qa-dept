@@ -1,21 +1,18 @@
 {
-  "name": "nightwatchjs",
+  "name": "ecosia_automation",
   "version": "1.0.0",
-  "description": "Test 'https://www.ecosia.org/' web application using NightwatchJS ",
+  "description": "Automation of Ecosia website using Nightwatch framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nightwatch"
   },
-  "author": "chanaggonda",
+  "keywords": [],
+  "author": "chanagonda",
   "license": "ISC",
-  "devDependencies": {
-    "chromedriver": "^96.0.0",
-    "geckodriver": "^3.0.1",
+  "dependencies": {
     "nightwatch": "^1.7.13"
   },
-  "dependencies": {
-    "cucumber": "^7.0.0-rc.0",
-    "nightwatch-cucumber": "^9.1.3",
-    "selenium-server": "^3.141.59"
+  "devDependencies": {
+    "chromedriver": "^97.0.0"
   }
 }
