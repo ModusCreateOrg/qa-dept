@@ -53,9 +53,15 @@ public class SeleniumTests {
 
     @Test(priority = 2)
     public void clickCheckboxes(){
-
         checkboxesPage.clickCheckbox();
+        Assert.assertTrue(checkboxesPage.getCheckboxState1());
     }
+    @Test(priority = 3)
+    public void unclickCheckbox2(){
+        checkboxesPage.unclickSecondCheckbox();
+        Assert.assertFalse(checkboxesPage.getCheckboxState2());
+    }
+
 
     @AfterClass
     public void afterClass () {
