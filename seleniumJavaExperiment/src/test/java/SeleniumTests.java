@@ -9,7 +9,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageObjects.ABtestPage;
 import pageObjects.CheckboxesPage;
+import pageObjects.DropDownPage;
 import pageObjects.HomePage;
+
+import java.io.PrintStream;
 
 public class SeleniumTests {
 
@@ -18,6 +21,7 @@ public class SeleniumTests {
     HomePage homePage;
     ABtestPage abTestPage;
     CheckboxesPage checkboxesPage;
+    DropDownPage dropdownpage;
 
     @BeforeClass
     public void beforeClass () {
@@ -28,6 +32,7 @@ public class SeleniumTests {
         homePage = PageFactory.initElements(driver, HomePage.class);
         abTestPage = PageFactory.initElements(driver, ABtestPage.class);
         checkboxesPage = PageFactory.initElements(driver, CheckboxesPage.class);
+        dropdownpage = PageFactory.initElements(driver, DropDownPage.class);
     }
     public void navigateBackHome(){
         driver.get("http://the-internet.herokuapp.com/");
@@ -61,7 +66,18 @@ public class SeleniumTests {
         checkboxesPage.unclickSecondCheckbox();
         Assert.assertFalse(checkboxesPage.getCheckboxState2());
     }
+    @Test(priority = 4)
+    public void testNavigationToDropdownPage ()  {
+        navigateBackHome();
+        homePage.clickOption("Dropdown");
+        Assert.assertEquals("Dropdown List", dropdownpage.getTitleText());
+        dropdownpage.openDropDown();
+        dropdownpage.selectOptions("Option 2");
+        dropdownpage.openDropDown();
+        System.out.println(dropdownpage.returnDropdownValue());
+        Assert.assertEquals("Option 2", dropdownpage.returnDropdownValue());
 
+    }
 
     @AfterClass
     public void afterClass () {
