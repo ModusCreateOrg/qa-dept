@@ -7,10 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.ABtestPage;
-import pageObjects.CheckboxesPage;
-import pageObjects.DropDownPage;
-import pageObjects.HomePage;
+import pageObjects.*;
 
 import java.io.PrintStream;
 
@@ -22,6 +19,7 @@ public class SeleniumTests {
     ABtestPage abTestPage;
     CheckboxesPage checkboxesPage;
     DropDownPage dropdownpage;
+    HoverPage hoverpage;
 
     @BeforeClass
     public void beforeClass () {
@@ -33,6 +31,7 @@ public class SeleniumTests {
         abTestPage = PageFactory.initElements(driver, ABtestPage.class);
         checkboxesPage = PageFactory.initElements(driver, CheckboxesPage.class);
         dropdownpage = PageFactory.initElements(driver, DropDownPage.class);
+        hoverpage = PageFactory.initElements(driver, HoverPage.class);
     }
     public void navigateBackHome(){
         driver.get("http://the-internet.herokuapp.com/");
@@ -78,6 +77,16 @@ public class SeleniumTests {
         Assert.assertEquals("Option 2", dropdownpage.returnDropdownValue());
 
     }
+    @Test(priority = 5)
+    public void testNavigationToHoverPage () throws InterruptedException {
+        navigateBackHome();
+        homePage.clickOption("Hovers");
+        Assert.assertEquals("Hovers", hoverpage.getTitleText());
+        Thread.sleep(1000);
+        hoverpage.hoveractionOne(driver);
+        hoverpage.clickuser1();
+    }
+
 
     @AfterClass
     public void afterClass () {
