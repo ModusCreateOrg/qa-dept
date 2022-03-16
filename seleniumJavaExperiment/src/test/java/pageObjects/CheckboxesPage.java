@@ -23,6 +23,8 @@ public class CheckboxesPage {
 
     public boolean getCheckboxState1(){return check1.isSelected();}
 
+
+
     public void unclickSecondCheckbox(){check2.click();}
 
     public boolean getCheckboxState2(){return check2.isSelected();}

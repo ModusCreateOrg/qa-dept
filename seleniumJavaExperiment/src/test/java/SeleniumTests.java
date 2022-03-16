@@ -1,3 +1,4 @@
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,6 +21,8 @@ public class SeleniumTests {
     CheckboxesPage checkboxesPage;
     DropDownPage dropdownpage;
     HoverPage hoverpage;
+    InputNumPage inputpage;
+    KeyPress keypress;
 
     @BeforeClass
     public void beforeClass () {
@@ -32,14 +35,17 @@ public class SeleniumTests {
         checkboxesPage = PageFactory.initElements(driver, CheckboxesPage.class);
         dropdownpage = PageFactory.initElements(driver, DropDownPage.class);
         hoverpage = PageFactory.initElements(driver, HoverPage.class);
+        inputpage=PageFactory.initElements(driver, InputNumPage.class);
+        keypress=PageFactory.initElements(driver, KeyPress.class);
     }
     public void navigateBackHome(){
         driver.get("http://the-internet.herokuapp.com/");
     }
 
 
-    @Test(priority = 0)
+    @Test
     public void testNavigationToABtestPage () {
+        navigateBackHome();
         homePage.clickOption("A/B Testing");
         Assert.assertEquals("A/B Test Control", abTestPage.getTitleText());
 
@@ -47,37 +53,29 @@ public class SeleniumTests {
 
 
 
-    @Test(priority = 1)
+    @Test
     public void testNavigationToCheckboxesPage () throws InterruptedException {
         navigateBackHome();
         homePage.clickOption("Checkboxes");
         Assert.assertEquals("Checkboxes", checkboxesPage.getTitleText());
         Thread.sleep(1000);
-    }
-
-    @Test(priority = 2)
-    public void clickCheckboxes(){
         checkboxesPage.clickCheckbox();
         Assert.assertTrue(checkboxesPage.getCheckboxState1());
-    }
-    @Test(priority = 3)
-    public void unclickCheckbox2(){
         checkboxesPage.unclickSecondCheckbox();
         Assert.assertFalse(checkboxesPage.getCheckboxState2());
     }
-    @Test(priority = 4)
+
+
+    @Test
     public void testNavigationToDropdownPage ()  {
         navigateBackHome();
         homePage.clickOption("Dropdown");
         Assert.assertEquals("Dropdown List", dropdownpage.getTitleText());
-        dropdownpage.openDropDown();
         dropdownpage.selectOptions("Option 2");
-        dropdownpage.openDropDown();
-        System.out.println(dropdownpage.returnDropdownValue());
         Assert.assertEquals("Option 2", dropdownpage.returnDropdownValue());
 
     }
-    @Test(priority = 5)
+    @Test
     public void testNavigationToHoverPage () throws InterruptedException {
         navigateBackHome();
         homePage.clickOption("Hovers");
@@ -86,10 +84,27 @@ public class SeleniumTests {
         hoverpage.hoveractionOne(driver);
         hoverpage.clickuser1();
     }
+    @Test
+    public void testInputPage()  {
+        navigateBackHome();
+        homePage.clickOption("Inputs");
+        Assert.assertEquals("Inputs", inputpage.getTitleText());
+       inputpage.enterNumber("99.9");
+       Assert.assertEquals("99.9", inputpage.getEnteredValue());
+    }
+
+    @Test
+    public void testKeyPress()  {
+        navigateBackHome();
+        homePage.clickOption("Key Presses");
+        Assert.assertEquals("Key Presses", keypress.getTitleText());
+        keypress.enterKey(Keys.SPACE);
+        Assert.assertEquals("SPACE",keypress.getEnteredText());
+    }
 
 
     @AfterClass
     public void afterClass () {
-        driver.quit();
+       driver.quit();
     }
 }

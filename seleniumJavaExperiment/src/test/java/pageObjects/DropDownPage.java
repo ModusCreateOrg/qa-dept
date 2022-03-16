@@ -15,7 +15,7 @@ public class DropDownPage {
         return pageTitle.getText();
     }
 
-    public void openDropDown(){dropdown.click();}
+
 
     public void selectOptions(String option){
         Select opt= new Select(dropdown);
