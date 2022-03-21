@@ -15,18 +15,9 @@ public class CheckboxesPage {
     public String getTitleText () {
         return pageTitle.getText();
     }
-
-
-    public void clickCheckbox(){
-    check1.click();
-    }
-
+    public void clickCheckbox(){ check1.click();}
     public boolean getCheckboxState1(){return check1.isSelected();}
-
-
-
     public void unclickSecondCheckbox(){check2.click();}
-
     public boolean getCheckboxState2(){return check2.isSelected();}
 
 

@@ -15,18 +15,14 @@ public class DropDownPage {
         return pageTitle.getText();
     }
 
-
-
     public void selectOptions(String option){
         Select opt= new Select(dropdown);
         opt.selectByVisibleText(option);
-
     }
 
     public String returnDropdownValue(){
         Select opt= new Select(dropdown);
         WebElement dropdownx= opt.getFirstSelectedOption();
-        String value= dropdownx.getText();
-         return value;
+        return dropdownx.getText();
     }
 }

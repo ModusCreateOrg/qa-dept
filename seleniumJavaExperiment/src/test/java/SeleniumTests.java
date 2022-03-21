@@ -47,9 +47,7 @@ public class SeleniumTests {
     public void testNavigationToABtestPage () {
         navigateBackHome();
         homePage.clickOption("A/B Testing");
-        Assert.assertEquals("A/B Test Control", abTestPage.getTitleText());
-
-    }
+        Assert.assertEquals("A/B Test Control", abTestPage.getTitleText());}
 
 
 
@@ -62,8 +60,7 @@ public class SeleniumTests {
         checkboxesPage.clickCheckbox();
         Assert.assertTrue(checkboxesPage.getCheckboxState1());
         checkboxesPage.unclickSecondCheckbox();
-        Assert.assertFalse(checkboxesPage.getCheckboxState2());
-    }
+        Assert.assertFalse(checkboxesPage.getCheckboxState2());}
 
 
     @Test
@@ -72,9 +69,7 @@ public class SeleniumTests {
         homePage.clickOption("Dropdown");
         Assert.assertEquals("Dropdown List", dropdownpage.getTitleText());
         dropdownpage.selectOptions("Option 2");
-        Assert.assertEquals("Option 2", dropdownpage.returnDropdownValue());
-
-    }
+        Assert.assertEquals("Option 2", dropdownpage.returnDropdownValue());}
     @Test
     public void testNavigationToHoverPage () throws InterruptedException {
         navigateBackHome();
@@ -82,16 +77,14 @@ public class SeleniumTests {
         Assert.assertEquals("Hovers", hoverpage.getTitleText());
         Thread.sleep(1000);
         hoverpage.hoveractionOne(driver);
-        hoverpage.clickuser1();
-    }
+        hoverpage.clickuser1();}
     @Test
     public void testInputPage()  {
         navigateBackHome();
         homePage.clickOption("Inputs");
         Assert.assertEquals("Inputs", inputpage.getTitleText());
        inputpage.enterNumber("99.9");
-       Assert.assertEquals("99.9", inputpage.getEnteredValue());
-    }
+       Assert.assertEquals("99.9", inputpage.getEnteredValue());}
 
     @Test
     public void testKeyPress()  {
@@ -99,12 +92,9 @@ public class SeleniumTests {
         homePage.clickOption("Key Presses");
         Assert.assertEquals("Key Presses", keypress.getTitleText());
         keypress.enterKey(Keys.SPACE);
-        Assert.assertEquals("SPACE",keypress.getEnteredText());
-    }
+        Assert.assertEquals("SPACE",keypress.getEnteredText());}
 
 
     @AfterClass
-    public void afterClass () {
-       driver.quit();
-    }
+    public void afterClass () {driver.quit();}
 }
