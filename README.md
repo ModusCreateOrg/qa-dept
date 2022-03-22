@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <p align="center">
-  <a href="https://moduscreate.com/"><img src=""/></a>
+  <a href="https://moduscreate.com/"><img src="https://raw.githubusercontent.com/ModusCreateOrg/qa-dept/QA-160/imgs/modus-logo.png"/></a>
 </p>
 </div>
 
