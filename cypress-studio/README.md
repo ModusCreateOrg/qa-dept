@@ -56,6 +56,81 @@ The main goal of this experiment is to share with the community how `Cypress Stu
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- DOCKER SECTION -->
+## How to run tests with docker 
+
+### Prerequisites
+Install the latest Docker engine on the local machine following instructions <a href="https://docs.docker.com/engine/install/">here.</a>
+
+### How to run cypress tests on the local machine
+For executing tests without need to install cypress or nodejs on local machine run following in `cypress-studio` folder:
+```sh
+docker run -it -v $PWD:/e2e -w /e2e cypress/included:8.5.0
+```
+
+### Build docker image with tests
+Run following in `cypress-studio`folder:
+```sh
+docker build -t modus/cypress-studio:latest .
+```
+
+Run tests locally:
+```sh
+docker run -it modus/cypress-studio:latest
+```
+
+### Push image in a docker repository
+
+To push the image in a private repo, we have to retag the image to point on the target docker repository. Otherwise, the default is Dockerhub.
+
+```sh
+docker tag modus/cypress-studio:latest  path-to-private-repo.com/repo/cypress-studio:latest
+```
+Where `path-to-private-repo.com/repo/cypress-studio:latest`is provate target docker repository.
+
+Credentials for the target docker repository are needed for the push.
+
+Push image with:
+```sh
+docker push path-to-private-repo.com/repo/cypress-studio:latest
+```
+
+## Deploy on Kubernetes
+### Prerequisites
+Docker image is built and pushed in the target repository. Install `kubectl` tool and configure access to Kubernetes cluster.
+Installation instructions are <a href="https://kubernetes.io/docs/tasks/tools/">here.</a><br>
+Alternatively, run on a local machine mini cube - follow instructions <a href="https://minikube.sigs.k8s.io/docs/start/">here.</a>
+
+### Kubernetes YAML example
+
+Save following YAML as `modus-test-job.yaml`
+```YAML
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: modus-cypress-test-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: modus-cypress-test-job
+        image: path-to-private-repo.com/repo/cypress-studio:latest 
+```
+
+Deploy job on kubernetes:
+```sh
+kubectl apply -f modus-test-job.yaml
+```
+
+Find exact name of the jobs pod with:
+```sh 
+kubectl get pods
+```
+
+Using `kubectl logs modus-cypress-test-job-XXX` get logs/results where `modus-cypress-test-job-XXX`is the name of the job.
+On development/testing, cluster logs could be redirected to the central logging system, and results could be visible there. 
+
+
 <!-- CONTACT -->
 ## Contact
 
