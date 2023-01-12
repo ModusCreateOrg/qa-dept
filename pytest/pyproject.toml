@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pytest"
+version = "7.2.0"
+description = ""
+authors = ["mehreen hamraz <mehreen.hamraz@moduscreate.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyleniumio = "^1.17.2"
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "2.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
