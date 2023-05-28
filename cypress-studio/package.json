@@ -6,6 +6,6 @@
   "author": "Pedro Hyvo",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^9.1.1"
+    "cypress": "^12.13.0"
   }
 }
