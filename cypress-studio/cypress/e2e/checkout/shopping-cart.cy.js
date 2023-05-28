@@ -29,7 +29,7 @@ it('can add a product into cart', function() {
   cy.get('[data-test="continue"]').click();
   cy.get('[data-test="finish"]').click();
   cy.get('.complete-header').should('be.visible');
-  cy.get('.complete-header').should('have.text', 'THANK YOU FOR YOUR ORDER');
+  cy.get('.complete-header').should('have.text', 'Thank you for your order!');
   cy.get('.complete-text').should('have.text', 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');
   cy.get('.pony_express').should('be.visible');
   /* ==== End Cypress Studio ==== */
